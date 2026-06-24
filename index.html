@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MR.YE - 个人主页</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- ========== 导航栏 ========== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">YE.</a>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">首页</a></li>
+                <li><a href="#about" class="nav-link">关于我</a></li>
+                <li><a href="#skills" class="nav-link">技能</a></li>
+                <li><a href="#projects" class="nav-link">项目</a></li>
+                <li><a href="#contact" class="nav-link">联系我</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== 首页 / 英雄区 ========== -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <p class="hero-greeting">你好，我是</p>
+            <h1 class="hero-name">MR.YE</h1>
+            <p class="hero-title">
+                <span class="typed-text" id="typed"></span><span class="cursor">|</span>
+            </p>
+            <p class="hero-desc">
+                专注于 IT 运维与自动化，用技术保障系统的稳定与高效。
+            </p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">查看作品</a>
+                <a href="#contact" class="btn btn-outline">联系我</a>
+            </div>
+            <div class="hero-socials">
+                <a href="mailto:2983004699@qq.com" title="邮箱"><i class="fas fa-envelope"></i></a>
+                <a href="#" title="微信"><i class="fab fa-weixin"></i></a>
+                <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+        <div class="hero-avatar">
+            <img src="头像.jpg" alt="MR.YE" class="avatar-img">
+        </div>
+        <div class="scroll-indicator">
+            <span>向下滚动</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- ========== 关于我 ========== -->
+    <section class="about section" id="about">
+        <div class="container">
+            <h2 class="section-title">关于我</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        你好！我是一名<span class="highlight">IT 运维工程师</span>，专注于系统运维、自动化部署和基础设施管理。
+                        拥有丰富的服务器管理与故障排查经验，致力于构建稳定、高效的技术架构。
+                    </p>
+                    <p>
+                        我相信运维是业务稳定运行的基石。工作中注重自动化、监控告警和容灾备份，
+                        热爱研究新技术，不断提升运维效率和服务质量。
+                    </p>
+                    <p>
+                        工作之外喜欢研究移动端技术，探索新鲜事物，保持持续学习的热情。
+                    </p>
+                    <div class="about-info">
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>中国</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-briefcase"></i>
+                            <span>IT 运维工程师</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>计算机相关 · 本科</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-heart"></i>
+                            <span>自动化、移动开发、新技术</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 技能 ========== -->
+    <section class="skills section" id="skills">
+        <div class="container">
+            <h2 class="section-title">技能</h2>
+            <div class="skills-grid">
+                <!-- 系统运维 -->
+                <div class="skill-category">
+                    <h3><i class="fas fa-server"></i> 系统运维</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Linux 系统管理</span>
+                                <span>92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="92"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Docker / Kubernetes</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>自动化运维 (Ansible)</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="80"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 移动开发 -->
+                <div class="skill-category">
+                    <h3><i class="fas fa-mobile-alt"></i> 移动开发</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Flutter</span>
+                                <span>82%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="82"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Dart</span>
+                                <span>78%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="78"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>React Native</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="75"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 其他技能标签 -->
+            <div class="skill-tags">
+                <span class="tag">Nginx</span>
+                <span class="tag">MySQL</span>
+                <span class="tag">Redis</span>
+                <span class="tag">Shell脚本</span>
+                <span class="tag">Python</span>
+                <span class="tag">Prometheus</span>
+                <span class="tag">CI/CD</span>
+                <span class="tag">Git</span>
+                <span class="tag">云服务</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 项目作品 ========== -->
+    <section class="projects section" id="projects">
+        <div class="container">
+            <h2 class="section-title">项目作品</h2>
+            <div class="projects-grid">
+                <!-- 项目 1 -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>自动化运维平台</h3>
+                        <p>基于 Python + Ansible 的自动化运维管理平台，支持批量部署、配置管理和实时监控告警。</p>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>Ansible</span>
+                            <span>Monitoring</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-sm"><i class="fas fa-external-link-alt"></i> 演示</a>
+                            <a href="#" class="btn btn-sm"><i class="fab fa-github"></i> 源码</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 项目 2 -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>移动运维 App</h3>
+                        <p>基于 Flutter 的移动端运维工具，支持服务器状态查看、告警推送和一键应急处理。</p>
+                        <div class="project-tags">
+                            <span>Flutter</span>
+                            <span>Dart</span>
+                            <span>API</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-sm"><i class="fas fa-external-link-alt"></i> 演示</a>
+                            <a href="#" class="btn btn-sm"><i class="fab fa-github"></i> 源码</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 项目 3 -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>容器化监控系统</h3>
+                        <p>基于 Prometheus + Grafana 的容器集群监控方案，涵盖日志采集、指标展示和智能告警。</p>
+                        <div class="project-tags">
+                            <span>Kubernetes</span>
+                            <span>Prometheus</span>
+                            <span>Grafana</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-sm"><i class="fas fa-external-link-alt"></i> 演示</a>
+                            <a href="#" class="btn btn-sm"><i class="fab fa-github"></i> 源码</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 联系我 ========== -->
+    <section class="contact section" id="contact">
+        <div class="container">
+            <h2 class="section-title">联系我</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>期待与你交流</h3>
+                    <p>无论是工作机会、项目合作，还是技术交流，都欢迎联系我！</p>
+                    <div class="contact-links">
+                        <a href="mailto:2983004699@qq.com">
+                            <i class="fas fa-envelope"></i> 2983004699@qq.com
+                        </a>
+                        <a href="#">
+                            <i class="fab fa-weixin"></i> l9l7o3i3ecf7
+                        </a>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" placeholder="你的名字" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="你的邮箱" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="5" placeholder="你想说些什么？" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <span>发送消息</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 页脚 ========== -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 MR.YE. All Rights Reserved.</p>
+            <div class="footer-socials">
+                <a href="mailto:2983004699@qq.com"><i class="fas fa-envelope"></i></a>
+                <a href="#"><i class="fab fa-weixin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to top -->
+    <a href="#home" class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
