@@ -18,10 +18,10 @@ function initTyping() {
     if (!typedEl) return;
 
     const titles = [
-        'IT 运维工程师',
-        '自动化运维专家',
-        '移动开发爱好者',
-        '终身学习者',
+        '云原生基础设施工程师',
+        'Kubernetes Operator 开发者',
+        '可观测性架构师',
+        '多云 IaC 实践者',
     ];
     let titleIdx = 0;
     let charIdx = 0;
