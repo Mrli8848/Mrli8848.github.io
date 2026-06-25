@@ -3,313 +3,322 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MR.YE - 个人主页</title>
+    <title>MR.YE — 云原生基础设施工程师</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome 图标库 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <!-- ========== 导航栏 ========== -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="#home" class="nav-logo">YE.</a>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">首页</a></li>
-                <li><a href="#about" class="nav-link">关于我</a></li>
-                <li><a href="#skills" class="nav-link">技能</a></li>
-                <li><a href="#projects" class="nav-link">项目</a></li>
-                <li><a href="#contact" class="nav-link">联系我</a></li>
-            </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
+    <!-- 光标跟随光晕 -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- 侧边装饰 -->
+    <div class="side-decor side-decor--left">
+        <span class="decor-line"></span>
+        <span class="decor-text">MR.YE</span>
+        <span class="decor-line"></span>
+    </div>
+
+    <!-- 导航 -->
+    <nav class="nav" id="nav">
+        <a href="#top" class="nav__brand">YE</a>
+        <div class="nav__links">
+            <a href="#work" class="nav__link">Work</a>
+            <a href="#craft" class="nav__link">Craft</a>
+            <a href="#about" class="nav__link">About</a>
+            <a href="#connect" class="nav__link">Connect</a>
         </div>
     </nav>
 
-    <!-- ========== 首页 / 英雄区 ========== -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <p class="hero-greeting">你好，我是</p>
-            <h1 class="hero-name">MR.YE</h1>
-            <p class="hero-title">
-                <span class="typed-text" id="typed"></span><span class="cursor">|</span>
-            </p>
-            <p class="hero-desc">
-                专注于云原生架构与运维自动化，从基础设施到可观测性，用技术驱动系统的高可用与自愈。
-            </p>
-            <div class="hero-buttons">
-                <a href="#projects" class="btn btn-primary">查看作品</a>
-                <a href="#contact" class="btn btn-outline">联系我</a>
+    <!-- ===== 主视觉 ===== -->
+    <header class="hero" id="top">
+        <div class="hero__grid">
+            <div class="hero__left">
+                <p class="hero__tag">SRE · Cloud Native</p>
+                <h1 class="hero__name">
+                    <span class="hero__name-line">MR.</span>
+                    <span class="hero__name-line hero__name-line--accent">YE</span>
+                </h1>
             </div>
-            <div class="hero-socials">
-                <a href="mailto:2983004699@qq.com" title="邮箱"><i class="fas fa-envelope"></i></a>
-                <a href="#" title="微信"><i class="fab fa-weixin"></i></a>
-                <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+            <div class="hero__right">
+                <div class="hero__portrait">
+                    <img src="头像.jpg" alt="MR.YE">
+                    <span class="hero__portrait-ring"></span>
+                </div>
+                <p class="hero__intro">
+                    构建<span class="text-glow">可观测</span>的分布式系统，
+                    让基础设施<span class="text-glow">自愈</span>而非报警。
+                </p>
+                <div class="hero__roles" id="heroRoles">
+                    <span class="hero__role-item"></span>
+                </div>
             </div>
         </div>
-        <div class="hero-avatar">
-            <img src="头像.jpg" alt="MR.YE" class="avatar-img">
+        <div class="hero__stats">
+            <div class="stat">
+                <span class="stat__num">5+</span>
+                <span class="stat__label">Years in SRE</span>
+            </div>
+            <div class="stat">
+                <span class="stat__num">50+</span>
+                <span class="stat__label">Clusters Managed</span>
+            </div>
+            <div class="stat">
+                <span class="stat__num">99.99%</span>
+                <span class="stat__label">Uptime Delivered</span>
+            </div>
         </div>
-        <div class="scroll-indicator">
-            <span>向下滚动</span>
-            <i class="fas fa-chevron-down"></i>
-        </div>
-    </section>
+    </header>
 
-    <!-- ========== 关于我 ========== -->
-    <section class="about section" id="about">
-        <div class="container">
-            <h2 class="section-title">关于我</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>
-                        一名深耕<span class="highlight">云原生基础设施</span>的 IT 运维工程师，聚焦分布式系统架构、
-                        可观测性治理与运维自动化。具备从底层 K8s 集群到上层业务全链路的技术闭环能力。
+    <!-- ===== 作品 ===== -->
+    <section class="work" id="work">
+        <div class="work__header">
+            <span class="section-num">01</span>
+            <h2 class="section-heading">Selected<br>Work</h2>
+            <p class="section-sub">—— 代表性项目，从零到一交付</p>
+        </div>
+
+        <div class="work__list">
+            <!-- 项目 1 -->
+            <article class="work-card" data-index="01">
+                <div class="work-card__visual">
+                    <div class="work-card__icon">
+                        <i class="fas fa-chart-network"></i>
+                    </div>
+                    <div class="work-card__index">01</div>
+                </div>
+                <div class="work-card__body">
+                    <h3 class="work-card__title">分布式监控采集平台</h3>
+                    <p class="work-card__desc">
+                        自研 Python 高性能指标采集引擎，原生集成 OpenTelemetry 全链路追踪。
+                        采用 Prometheus Remote Write 协议对接 VictoriaMetrics + Thanos 长期存储集群，
+                        支撑日均 <em>10 亿+</em> 数据点写入。
                     </p>
-                    <p>
-                        核心方向涵盖 Kubernetes 集群管理与 Operator 扩展开发、基于 OpenTelemetry 的全栈可观测性体系、
-                        Terraform 多云基础设施编排、大规模日志管道（ELK + Kafka）建设以及容器安全与合规审计。
+                    <div class="work-card__stack">
+                        <span>Python 3.12</span>
+                        <span>OpenTelemetry</span>
+                        <span>Prometheus</span>
+                        <span>VictoriaMetrics</span>
+                        <span>Thanos</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 项目 2 -->
+            <article class="work-card work-card--reversed" data-index="02">
+                <div class="work-card__visual">
+                    <div class="work-card__icon">
+                        <i class="fas fa-cubes"></i>
+                    </div>
+                    <div class="work-card__index">02</div>
+                </div>
+                <div class="work-card__body">
+                    <h3 class="work-card__title">K8s Operator 自定义调度器</h3>
+                    <p class="work-card__desc">
+                        基于 Kubebuilder 构建的自定义调度控制器，实现业务感知的智能 Pod 调度、
+                        弹性伸缩与故障自愈。集成 Istio 服务网格，支持东西向流量的<em>灰度发布</em>与金丝雀策略。
                     </p>
-                    <p>
-                        具备 Python / Golang 自研工具链开发能力，同时掌握 Flutter 移动端技术，
-                        能够独立交付"移动端运维终端 + 后端采集引擎"的完整解决方案。
+                    <div class="work-card__stack">
+                        <span>Golang</span>
+                        <span>Kubebuilder</span>
+                        <span>Istio</span>
+                        <span>CRD</span>
+                        <span>Envoy</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 项目 3 -->
+            <article class="work-card" data-index="03">
+                <div class="work-card__visual">
+                    <div class="work-card__icon">
+                        <i class="fas fa-clouds"></i>
+                    </div>
+                    <div class="work-card__index">03</div>
+                </div>
+                <div class="work-card__body">
+                    <h3 class="work-card__title">多云 IaC + 安全治理</h3>
+                    <p class="work-card__desc">
+                        基于 Terraform 统一编排阿里云 ACK / 腾讯云 TKE 基础设施，
+                        ELK 日志审计管道日处理 <em>TB 级</em>日志。集成容器漏洞扫描引擎与堡垒机审计，
+                        全链路安全左移。
                     </p>
-                    <div class="about-info">
-                        <div class="info-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>中国</span>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-briefcase"></i>
-                            <span>IT 运维工程师</span>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-graduation-cap"></i>
-                            <span>计算机相关 · 本科</span>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-heart"></i>
-                            <span>自动化、移动开发、新技术</span>
-                        </div>
+                    <div class="work-card__stack">
+                        <span>Terraform</span>
+                        <span>ELK</span>
+                        <span>Trivy</span>
+                        <span>阿里云 ACK</span>
+                        <span>腾讯云 TKE</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- ===== 技能 ===== -->
+    <section class="craft" id="craft">
+        <div class="craft__header">
+            <span class="section-num">02</span>
+            <h2 class="section-heading">The<br>Craft</h2>
+            <p class="section-sub">—— 技术栈深度</p>
+        </div>
+
+        <div class="craft__grid">
+            <!-- 领域 1 -->
+            <div class="craft-domain">
+                <div class="craft-domain__head">
+                    <i class="fas fa-microchip"></i>
+                    <h3>Infrastructure</h3>
+                </div>
+                <div class="craft-domain__bars">
+                    <div class="bar-item">
+                        <div class="bar-item__top"><span>Kubernetes & Istio</span><span class="bar-item__extra">生产级</span></div>
+                        <div class="bar"><div class="bar__fill" style="--w:92"></div></div>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar-item__top"><span>Terraform IaC</span><span class="bar-item__extra">多云</span></div>
+                        <div class="bar"><div class="bar__fill" style="--w:88"></div></div>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar-item__top"><span>阿里云 / 腾讯云容器</span><span class="bar-item__extra">ACK·TKE</span></div>
+                        <div class="bar"><div class="bar__fill" style="--w:85"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 领域 2 -->
+            <div class="craft-domain">
+                <div class="craft-domain__head">
+                    <i class="fas fa-radar"></i>
+                    <h3>Observability</h3>
+                </div>
+                <div class="craft-domain__bars">
+                    <div class="bar-item">
+                        <div class="bar-item__top"><span>OpenTelemetry</span><span class="bar-item__extra">全链路</span></div>
+                        <div class="bar"><div class="bar__fill" style="--w:90"></div></div>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar-item__top"><span>ELK + Kafka 管道</span><span class="bar-item__extra">TB级</span></div>
+                        <div class="bar"><div class="bar__fill" style="--w:85"></div></div>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar-item__top"><span>自研 Python 采集器</span><span class="bar-item__extra">自研</span></div>
+                        <div class="bar"><div class="bar__fill" style="--w:87"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 领域 3 -->
+            <div class="craft-domain">
+                <div class="craft-domain__head">
+                    <i class="fas fa-shield-check"></i>
+                    <h3>Security & DevOps</h3>
+                </div>
+                <div class="craft-domain__bars">
+                    <div class="bar-item">
+                        <div class="bar-item__top"><span>容器安全 & 镜像扫描</span><span class="bar-item__extra">Trivy</span></div>
+                        <div class="bar"><div class="bar__fill" style="--w:82"></div></div>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar-item__top"><span>堡垒机 & 访问控制</span><span class="bar-item__extra">合规</span></div>
+                        <div class="bar"><div class="bar__fill" style="--w:80"></div></div>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar-item__top"><span>CI/CD Pipeline</span><span class="bar-item__extra">GitOps</span></div>
+                        <div class="bar"><div class="bar__fill" style="--w:88"></div></div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- 技术标签云 -->
+        <div class="tag-cloud">
+            <span>K8s</span>
+            <span>Terraform</span>
+            <span>ELK</span>
+            <span>Istio</span>
+            <span>Kafka</span>
+            <span>OpenTelemetry</span>
+            <span>Serverless</span>
+            <span>Python</span>
+            <span>Golang</span>
+            <span>Prometheus</span>
+            <span>VictoriaMetrics</span>
+            <span>Envoy</span>
+            <span>GitOps</span>
+            <span>Trivy</span>
+            <span>Ansible</span>
+            <span>Serverless</span>
+        </div>
     </section>
 
-    <!-- ========== 技能 ========== -->
-    <section class="skills section" id="skills">
-        <div class="container">
-            <h2 class="section-title">技能</h2>
-            <div class="skills-grid">
-                <!-- 云原生 & 基础设施 -->
-                <div class="skill-category">
-                    <h3><i class="fas fa-cloud"></i> 云原生 & 基础设施</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span>Kubernetes / Istio 服务网格</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="90"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span>Terraform IaC</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="85"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span>阿里云 / 腾讯云容器服务</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="85"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- 可观测性 & 数据中间件 -->
-                <div class="skill-category">
-                    <h3><i class="fas fa-chart-line"></i> 可观测性 & 数据</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span>OpenTelemetry / Prometheus</span>
-                                <span>88%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="88"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span>ELK / Kafka 日志管道</span>
-                                <span>82%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="82"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span>Python 自研采集器</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="85"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <!-- ===== 关于 ===== -->
+    <section class="about-section" id="about">
+        <div class="about-section__header">
+            <span class="section-num">03</span>
+            <h2 class="section-heading">Who<br>I Am</h2>
+        </div>
+        <div class="about-section__body">
+            <div class="about-block">
+                <p>一名深耕<strong>云原生基础设施</strong>的 SRE 工程师。不满足于"能跑就行"——</p>
+                <p>追求<strong>可观测、可自愈、可预测</strong>的系统架构。擅长从零搭建 K8s 集群、设计全链路监控体系、用 Terraform 管理多云资源。</p>
+                <p>具备 <strong>Python / Golang</strong> 自研工具链能力，能独立交付「后端采集引擎 + 移动端运维终端」的完整闭环。</p>
             </div>
-            <!-- 其他技能标签 -->
-            <div class="skill-tags">
-                <span class="tag">Terraform</span>
-                <span class="tag">ELK Stack</span>
-                <span class="tag">Istio</span>
-                <span class="tag">Kafka</span>
-                <span class="tag">OpenTelemetry</span>
-                <span class="tag">K8s Operator</span>
-                <span class="tag">Serverless</span>
-                <span class="tag">堡垒机</span>
-                <span class="tag">容器安全</span>
-                <span class="tag">Python</span>
-                <span class="tag">CI/CD</span>
-                <span class="tag">Git</span>
+            <div class="about-meta">
+                <div class="meta-item"><span>📍</span> 中国</div>
+                <div class="meta-item"><span>💼</span> SRE · Cloud Native</div>
+                <div class="meta-item"><span>📱</span> Flutter · 移动运维</div>
+                <div class="meta-item"><span>🔬</span> OTel · eBPF 探索中</div>
             </div>
         </div>
     </section>
 
-    <!-- ========== 项目作品 ========== -->
-    <section class="projects section" id="projects">
-        <div class="container">
-            <h2 class="section-title">项目作品</h2>
-            <div class="projects-grid">
-                <!-- 项目 1 -->
-                <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-network-wired"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3>分布式监控采集平台</h3>
-                        <p>基于 Python 自研的高性能指标采集器，集成 OpenTelemetry 实现全链路追踪，支持 Prometheus Remote Write 协议对接 VictoriaMetrics / Thanos 长期存储。</p>
-                        <div class="project-tags">
-                            <span>Python</span>
-                            <span>OpenTelemetry</span>
-                            <span>Prometheus</span>
-                            <span>VictoriaMetrics</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="btn btn-sm"><i class="fas fa-external-link-alt"></i> 演示</a>
-                            <a href="#" class="btn btn-sm"><i class="fab fa-github"></i> 源码</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- 项目 2 -->
-                <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-code-branch"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3>K8s 自定义调度控制器</h3>
-                        <p>使用 Kubernetes Operator SDK 开发的自定义控制器，实现基于业务感知的智能调度、Pod 自动伸缩与故障自愈，集成 Istio 实现东西向流量灰度发布。</p>
-                        <div class="project-tags">
-                            <span>K8s Operator</span>
-                            <span>Golang</span>
-                            <span>Istio</span>
-                            <span>CRD</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="btn btn-sm"><i class="fas fa-external-link-alt"></i> 演示</a>
-                            <a href="#" class="btn btn-sm"><i class="fab fa-github"></i> 源码</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- 项目 3 -->
-                <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-shield-haltered"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3>多云 IaC + 安全合规平台</h3>
-                        <p>基于 Terraform 统一编排阿里云+腾讯云基础设施，集成 ELK 日志审计、容器漏洞扫描与堡垒机访问控制，实现基础设施即代码与安全左移。</p>
-                        <div class="project-tags">
-                            <span>Terraform</span>
-                            <span>ELK</span>
-                            <span>容器安全</span>
-                            <span>阿里云/腾讯云</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="btn btn-sm"><i class="fas fa-external-link-alt"></i> 演示</a>
-                            <a href="#" class="btn btn-sm"><i class="fab fa-github"></i> 源码</a>
-                        </div>
-                    </div>
-                </div>
+    <!-- ===== 联系 ===== -->
+    <section class="connect" id="connect">
+        <div class="connect__header">
+            <span class="section-num">04</span>
+            <h2 class="section-heading">Let's<br>Talk</h2>
+            <p class="section-sub">—— 合作、交流、或者单纯聊技术</p>
+        </div>
+        <div class="connect__grid">
+            <div class="connect__info">
+                <a href="mailto:2983004699@qq.com" class="connect__link">
+                    <i class="fas fa-envelope"></i>
+                    <span>2983004699@qq.com</span>
+                </a>
+                <a href="#" class="connect__link">
+                    <i class="fab fa-weixin"></i>
+                    <span>l9l7o3i3ecf7</span>
+                </a>
+                <a href="https://github.com/Mrli8848" class="connect__link">
+                    <i class="fab fa-github"></i>
+                    <span>Mrli8848</span>
+                </a>
             </div>
+            <form class="connect__form" id="connectForm">
+                <div class="input-wrap">
+                    <input type="text" required id="nameInput">
+                    <label for="nameInput">你的名字</label>
+                </div>
+                <div class="input-wrap">
+                    <input type="email" required id="emailInput">
+                    <label for="emailInput">你的邮箱</label>
+                </div>
+                <div class="input-wrap">
+                    <textarea rows="1" required id="msgInput" oninput="this.style.height='';this.style.height=this.scrollHeight+'px'"></textarea>
+                    <label for="msgInput">说点什么……</label>
+                </div>
+                <button type="submit" class="send-btn">
+                    <span>Send Message</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
         </div>
     </section>
 
-    <!-- ========== 联系我 ========== -->
-    <section class="contact section" id="contact">
-        <div class="container">
-            <h2 class="section-title">联系我</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>期待与你交流</h3>
-                    <p>无论是工作机会、项目合作，还是技术交流，都欢迎联系我！</p>
-                    <div class="contact-links">
-                        <a href="mailto:2983004699@qq.com">
-                            <i class="fas fa-envelope"></i> 2983004699@qq.com
-                        </a>
-                        <a href="#">
-                            <i class="fab fa-weixin"></i> l9l7o3i3ecf7
-                        </a>
-                    </div>
-                </div>
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <input type="text" placeholder="你的名字" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" placeholder="你的邮箱" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea rows="5" placeholder="你想说些什么？" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">
-                        <span>发送消息</span>
-                        <i class="fas fa-paper-plane"></i>
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== 页脚 ========== -->
+    <!-- 页脚 -->
     <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 MR.YE. All Rights Reserved.</p>
-            <div class="footer-socials">
-                <a href="mailto:2983004699@qq.com"><i class="fas fa-envelope"></i></a>
-                <a href="#"><i class="fab fa-weixin"></i></a>
-                <a href="#"><i class="fab fa-github"></i></a>
-            </div>
-        </div>
+        <p>© 2026 MR.YE · Built for reliability</p>
     </footer>
-
-    <!-- Scroll to top -->
-    <a href="#home" class="scroll-top" id="scrollTop">
-        <i class="fas fa-arrow-up"></i>
-    </a>
 
     <script src="script.js"></script>
 </body>

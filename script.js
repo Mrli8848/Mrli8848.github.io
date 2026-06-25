@@ -1,228 +1,192 @@
 /* ============================================
-   个人主页 - 交互脚本
+   MR.YE — 交互脚本
    ============================================ */
 
-document.addEventListener('DOMContentLoaded', () => {
-    initTyping();
-    initNavbar();
-    initHamburger();
-    initScrollTop();
-    initScrollSpy();
-    initSkillBars();
-    initContactForm();
-});
+;(function () {
+    // ----- Cursor glow -----
+    const glow = document.getElementById('cursorGlow');
+    let glowTimeout;
+    document.addEventListener('mousemove', (e) => {
+        if (!glow) return;
+        glow.style.left = e.clientX + 'px';
+        glow.style.top = e.clientY + 'px';
+        glow.classList.add('active');
+        clearTimeout(glowTimeout);
+        glowTimeout = setTimeout(() => glow.classList.remove('active'), 1200);
+    });
+    // Touch: hide glow
+    document.addEventListener('touchstart', () => {
+        if (glow) glow.classList.remove('active');
+    }, { once: true });
 
-// ----- 打字效果 -----
-function initTyping() {
-    const typedEl = document.getElementById('typed');
-    if (!typedEl) return;
+    // ----- Side decor -----
+    const sideDecor = document.querySelector('.side-decor');
+    let decorTimeout;
+    window.addEventListener('scroll', () => {
+        if (!sideDecor) return;
+        sideDecor.classList.add('visible');
+        clearTimeout(decorTimeout);
+        decorTimeout = setTimeout(() => sideDecor.classList.remove('visible'), 2000);
+    });
 
-    const titles = [
-        '云原生基础设施工程师',
-        'Kubernetes Operator 开发者',
-        '可观测性架构师',
-        '多云 IaC 实践者',
+    // ----- Nav scroll effect -----
+    const nav = document.getElementById('nav');
+    const sections = document.querySelectorAll('section[id], header[id]');
+    const navLinks = document.querySelectorAll('.nav__link');
+    window.addEventListener('scroll', () => {
+        if (!nav) return;
+        // Background
+        nav.classList.toggle('scrolled', window.scrollY > 40);
+        // Active link
+        let current = '';
+        sections.forEach((sec) => {
+            if (window.scrollY >= sec.offsetTop - 200) {
+                current = sec.getAttribute('id');
+            }
+        });
+        navLinks.forEach((link) => {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+        });
+    });
+
+    // ----- Typing effect for hero roles -----
+    const roleEl = document.querySelector('.hero__role-item');
+    const roles = [
+        'Kubernetes 集群架构',
+        '可观测性体系搭建',
+        '多云基础设施编排',
+        'Operator 自定义开发',
     ];
-    let titleIdx = 0;
-    let charIdx = 0;
-    let isDeleting = false;
-    let isWaiting = false;
+    let roleIdx = 0, charIdx = 0, deleting = false, waiting = false;
 
-    function type() {
-        const current = titles[titleIdx];
+    function typeRole() {
+        if (!roleEl) return;
+        const current = roles[roleIdx];
 
-        if (isWaiting) {
-            // 打完一个词后停顿
-            typedEl.textContent = current;
-            setTimeout(() => {
-                isWaiting = false;
-                isDeleting = true;
-                type();
-            }, 2000);
+        if (waiting) {
+            roleEl.textContent = current;
+            setTimeout(() => { waiting = false; deleting = true; typeRole(); }, 2200);
             return;
         }
-
-        if (isDeleting) {
+        if (deleting) {
             charIdx--;
-            typedEl.textContent = current.substring(0, charIdx);
-            if (charIdx === 0) {
-                isDeleting = false;
-                titleIdx = (titleIdx + 1) % titles.length;
-                setTimeout(type, 400);
-                return;
-            }
+            roleEl.textContent = current.slice(0, charIdx);
+            if (charIdx === 0) { deleting = false; roleIdx = (roleIdx + 1) % roles.length; setTimeout(typeRole, 350); return; }
         } else {
             charIdx++;
-            typedEl.textContent = current.substring(0, charIdx);
-            if (charIdx === current.length) {
-                isWaiting = true;
-                setTimeout(type, 2000);
-                return;
-            }
+            roleEl.textContent = current.slice(0, charIdx);
+            if (charIdx === current.length) { waiting = true; setTimeout(typeRole, 2200); return; }
         }
-
-        const speed = isDeleting ? 40 : 100;
-        setTimeout(type, speed);
+        setTimeout(typeRole, deleting ? 35 : 80);
     }
+    setTimeout(typeRole, 800);
 
-    setTimeout(type, 500);
-}
-
-// ----- 导航栏滚动效果 -----
-function initNavbar() {
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
-}
-
-// ----- 汉堡菜单 -----
-function initHamburger() {
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-        document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
-    });
-
-    // 点击导航链接后关闭菜单
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-    });
-}
-
-// ----- 回到顶部按钮 -----
-function initScrollTop() {
-    const scrollTopBtn = document.getElementById('scrollTop');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 600) {
-            scrollTopBtn.classList.add('visible');
-        } else {
-            scrollTopBtn.classList.remove('visible');
-        }
-    });
-}
-
-// ----- 滚动监听：高亮当前导航链接 -----
-function initScrollSpy() {
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    window.addEventListener('scroll', () => {
-        let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - 120;
-            if (window.scrollY >= sectionTop) {
-                current = section.getAttribute('id');
-            }
-        });
-
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === '#' + current) {
-                link.classList.add('active');
-            }
-        });
-    });
-}
-
-// ----- 技能条滚动动画 -----
-function initSkillBars() {
-    const progressBars = document.querySelectorAll('.skill-progress');
-    let animated = false;
-
-    function animateBars() {
-        const skillsSection = document.getElementById('skills');
-        if (!skillsSection) return;
-        const sectionTop = skillsSection.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-
-        if (sectionTop < windowHeight - 100 && !animated) {
-            animated = true;
-            progressBars.forEach(bar => {
-                const width = bar.getAttribute('data-width');
-                bar.style.width = width + '%';
-            });
-        }
-    }
-
-    window.addEventListener('scroll', animateBars);
-    // 初始检查（页面加载时技能区可能已在视野内）
-    animateBars();
-}
-
-// ----- 联系表单提交 -----
-function initContactForm() {
-    const form = document.getElementById('contactForm');
-    if (!form) return;
-
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        const btn = form.querySelector('button');
-        const originalHTML = btn.innerHTML;
-
-        // 模拟发送
-        btn.innerHTML = '<span>发送中...</span><i class="fas fa-spinner fa-spin"></i>';
-        btn.disabled = true;
-
-        setTimeout(() => {
-            btn.innerHTML = '<span>发送成功 ✓</span><i class="fas fa-check"></i>';
-            btn.style.background = '#22c55e';
-            form.reset();
-
-            // 恢复按钮
-            setTimeout(() => {
-                btn.innerHTML = originalHTML;
-                btn.style.background = '';
-                btn.disabled = false;
-            }, 2500);
-        }, 1500);
-    });
-}
-
-// ----- 滚动渐入动画（Intersection Observer）-----
-function initScrollReveal() {
-    const revealElements = document.querySelectorAll(
-        '.project-card, .info-item, .skill-category, .about-text, .tag'
+    // ----- Scroll reveal -----
+    const revealEls = document.querySelectorAll(
+        '.work-card, .craft-domain, .about-block, .about-meta, .connect__info, .connect__form, .stat, .hero__intro, .hero__portrait'
     );
+    revealEls.forEach((el) => el.classList.add('reveal'));
 
-    const observer = new IntersectionObserver(
+    const revealObserver = new IntersectionObserver(
         (entries) => {
-            entries.forEach(entry => {
+            entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                    observer.unobserve(entry.target);
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
                 }
             });
         },
-        {
-            threshold: 0.15,
-            rootMargin: '0px 0px -50px 0px',
-        }
+        { threshold: 0.12, rootMargin: '0px 0px -30px 0px' }
     );
+    revealEls.forEach((el) => revealObserver.observe(el));
 
-    revealElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
-    });
-}
+    // ----- Skill bar reveal -----
+    const bars = document.querySelectorAll('.bar__fill');
+    const barObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal');
+                    barObserver.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.3 }
+    );
+    bars.forEach((b) => barObserver.observe(b));
 
-// 在 DOMContentLoaded 中也调用滚动渐入
-document.addEventListener('DOMContentLoaded', () => {
-    initScrollReveal();
-});
+    // ----- Form submit -----
+    const form = document.getElementById('connectForm');
+    if (form) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = form.querySelector('.send-btn');
+            const origHTML = btn.innerHTML;
+            btn.innerHTML = '<span>Sending...</span><i class="fas fa-spinner fa-spin"></i>';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                btn.innerHTML = '<span>Sent ✓</span><i class="fas fa-check"></i>';
+                btn.classList.add('success');
+                form.reset();
+                // Reset textarea height
+                const ta = form.querySelector('textarea');
+                if (ta) ta.style.height = '';
+
+                setTimeout(() => {
+                    btn.innerHTML = origHTML;
+                    btn.classList.remove('success');
+                    btn.disabled = false;
+                }, 2800);
+            }, 1200);
+        });
+    }
+
+    // ----- Stats counter animation -----
+    const statNums = document.querySelectorAll('.stat__num');
+    const statObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    animateStat(entry.target);
+                    statObserver.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.5 }
+    );
+    statNums.forEach((s) => statObserver.observe(s));
+
+    function animateStat(el) {
+        const text = el.textContent.trim();
+        // Match patterns like "5+", "50+", "99.99%"
+        const numMatch = text.match(/^([\d.]+)([+%]*)$/);
+        if (!numMatch) { el.style.opacity = '1'; return; }
+
+        const target = parseFloat(numMatch[1]);
+        const suffix = numMatch[2] || '';
+        const isFloat = numMatch[1].includes('.');
+        const duration = 1800;
+        const start = performance.now();
+
+        el.style.opacity = '1';
+
+        function tick(now) {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            // ease-out
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const current = isFloat
+                ? (target * eased).toFixed(2)
+                : Math.floor(target * eased);
+            el.textContent = current + suffix;
+            if (progress < 1) requestAnimationFrame(tick);
+            else el.textContent = text; // Ensure exact final value
+        }
+        requestAnimationFrame(tick);
+    }
+
+    // Expose stat nums initially hidden
+    statNums.forEach((s) => { s.style.opacity = '0'; s.style.transition = 'opacity 0.3s'; });
+
+})();
